@@ -22,8 +22,9 @@ if url :
         for container in containers:
             try:
                 review = container.find('span', attrs = {'data-testid' : 'lblItemUlasan'}).text
+                username = container.find('span', attrs = {'class' : 'name'}).text
                 data.append(
-                    (review)
+                    (review, username)
                 )
             except AttributeError:
                 continue
@@ -34,7 +35,7 @@ if url :
 
 
     print(data)
-    df = pd.DataFrame(data, columns=["Ulasan"])
-    df.to_csv("Tokpedreview.csv", index=False)
+    df = pd.DataFrame(data, columns=["Ulasan", "username"])
+    df.to_csv("Tokpedreview(1).csv", index=False)
 
     
