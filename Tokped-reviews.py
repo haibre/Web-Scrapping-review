@@ -15,7 +15,7 @@ if url :
     driver.get(url)
 
     data = []
-    for i in range (0, 3):
+    for i in range (0, 9):
         soup = BeautifulSoup(driver.page_source, "html.parser")
         containers = soup.findAll('article', attrs={'class':'css-1pr2lii'})
         
